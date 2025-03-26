@@ -4,8 +4,9 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   entry: "./src/index.js",
   output: {
-    path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
+    path: path.resolve(__dirname, "dist"),
+    publicPath: "/ramen-game/",
   },
   module: {
     rules: [
@@ -30,9 +31,7 @@ module.exports = {
     }),
   ],
   devServer: {
-    static: {
-      directory: path.join(__dirname, "dist"),
-    },
+    static: "./dist",
     compress: true,
     port: 9000,
   },
